@@ -51,13 +51,13 @@ for item in input().split(','):
         data.append([])
     else:
         data.append([int(item)])
-obj = MyCircularQueue(data[0][0])
+obj = MyCircularQueue()
 result = []
 for i in range(len(operations)):
     if i == 0:
         result.append(None)
     elif operations[i] == "enqueue":
-        result.append(obj.enqueue()
+        result.append(obj.enqueue(data[i][0])
     elif operations[i] == "get_rear":
         result.append(obj.get_rear())
     elif operations[i] == "get_front":
