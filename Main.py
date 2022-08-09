@@ -38,8 +38,7 @@ class MyCircularQueue:
 
     def is_full(self):
         return (self.front == 0 and self.rear == (self.size - 1)) or (self.front == (self.rear + 1) % self.size)
-
-
+    
 # Do not change the following codeT
 operations = []
 for specific_operation in input().split(','):
@@ -51,6 +50,7 @@ for item in input().split(','):
         data.append([])
     else:
         data.append([int(item)])
+        
 obj = MyCircularQueue()
 result = []
 for i in range(len(operations)):
