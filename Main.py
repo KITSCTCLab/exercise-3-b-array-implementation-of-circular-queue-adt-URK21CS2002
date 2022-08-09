@@ -41,7 +41,7 @@ class MyCircularQueue:
 # Do not change the following code
 operations = []
 for specific_operation in input().split(','):
-operations.append(specific_operation.strip())
+    operations.append(specific_operation.strip())
 data = []
 for item in input().split(','):
     item = item.strip()
