@@ -3,6 +3,7 @@ class MyCircularQueue:
         self.queue = [0] * size
         self.size = size
         self.front, self.rear = -1, -1
+        
     def enqueue(self, value: int) -> bool:
         if self.is_full():
             return False
