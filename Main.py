@@ -43,13 +43,13 @@ class MyCircularQueue:
 operations = []
 for specific_operation in input().split(','):
     operations.append(specific_operation.strip())
-    data = []
-    for item in input().split(','):
-        item = item.strip()
-        if item == '-':
-            data.append([])
-        else: 
-            data.append([int(item)])
+data = []
+for item in input().split(','):
+    item = item.strip()
+    if item == '-':
+        data.append([])
+    else: 
+        data.append([int(item)])
             
 obj = MyCircularQueue(data[0][0])
 result = []
