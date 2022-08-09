@@ -1,22 +1,24 @@
 class MyCircularQueue:
-    def __init__(self, size: int):
+    def _init_(self, size: int):
         self.size=size
         self.queue=[None]*size
         self.rear=-1
         self.front=-1
+
     def enqueue(self, value: int) -> bool:
+       
         if(self.is_full()==False):
             if(self.front==-1):
                 self.front=0
                 self.rear=0
                 self.queue[self.rear]=value
-            else :
+            else:
                 self.rear=(self.rear+1)%self.size
                 self.queue[self.rear]=value
-                return True
+            return True
         else:
             return False
-     
+
     def dequeue(self) -> bool:
         if(self.is_empty()==False):
             if(self.front==self.rear):
@@ -28,7 +30,7 @@ class MyCircularQueue:
                 return True
         else:
             return False
-
+                
 
     def get_front(self) -> int:
         if(self.is_empty()==False):
@@ -44,10 +46,10 @@ class MyCircularQueue:
 
     def is_empty(self):
         return self.front==-1
-    
+
     def is_full(self):
         return (self.rear+1)%self.size==self.front
-
+           
 
 
 # Do not change the following code
@@ -61,8 +63,8 @@ for item in input().split(','):
         data.append([])
     else:
         data.append([int(item)])
-        obj = MyCircularQueue(data[0][0])
-        result = []
+obj = MyCircularQueue(data[0][0])
+result = []
 for i in range(len(operations)):
     if i == 0:
         result.append(None)
@@ -78,4 +80,5 @@ for i in range(len(operations)):
         result.append(obj.is_full())
     elif operations[i] == "is_empty":
         result.append(obj.is_empty())
+
 print(result)
