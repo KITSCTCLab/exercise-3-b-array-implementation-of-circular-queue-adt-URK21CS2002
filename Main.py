@@ -1,9 +1,8 @@
 class MyCircularQueue:
-    def _init_(self, size: int):
+    def __init__(self, size: int):
         self.queue = [0] * size
         self.size = size
         self.front, self.rear = -1, -1
-
     def enqueue(self, value: int) -> bool:
         if self.is_full():
             return False
@@ -12,7 +11,7 @@ class MyCircularQueue:
         else:
             self.rear = (self.rear + 1) % self.size
             self.queue[self.rear] = value
-        return True
+            return True
 
     def dequeue(self) -> bool:
         if self.is_empty():
@@ -21,7 +20,7 @@ class MyCircularQueue:
             self.front, self.rear = -1, -1
         else:
             self.front = (self.front + 1) % self.size
-        return True
+            return True
 
     def get_front(self) -> int:
         if not self.is_empty():
@@ -32,18 +31,17 @@ class MyCircularQueue:
         if not self.is_empty():
             return self.queue[self.rear]
         return -1
-
     def is_empty(self):
         return self.front == -1
-
+    
     def is_full(self):
         return (self.front == 0 and self.rear == (self.size - 1)) or (self.front == (self.rear + 1) % self.size)
 
-    
-# Do not change the following codeT
+
+# Do not change the following code
 operations = []
 for specific_operation in input().split(','):
-    operations.append(specific_operation.strip())
+operations.append(specific_operation.strip())
 data = []
 for item in input().split(','):
     item = item.strip()
@@ -51,14 +49,13 @@ for item in input().split(','):
         data.append([])
     else:
         data.append([int(item)])
-        
-obj = MyCircularQueue()
+obj = MyCircularQueue(data[0][0])
 result = []
 for i in range(len(operations)):
     if i == 0:
         result.append(None)
     elif operations[i] == "enqueue":
-        result.append(obj.enqueue())
+        result.append(obj.enqueue(data[i][0]))
     elif operations[i] == "get_rear":
         result.append(obj.get_rear())
     elif operations[i] == "get_front":
@@ -69,5 +66,5 @@ for i in range(len(operations)):
         result.append(obj.is_full())
     elif operations[i] == "is_empty":
         result.append(obj.is_empty())
-
 print(result)
+
