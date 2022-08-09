@@ -1,9 +1,9 @@
 class MyCircularQueue:
-    def __init__(self, size: int):
+    def _init_(self, size: int):
         self.queue = [0] * size
         self.size = size
         self.front, self.rear = -1, -1
-       
+
     def enqueue(self, value: int) -> bool:
         if self.is_full():
             return False
@@ -13,7 +13,7 @@ class MyCircularQueue:
             self.rear = (self.rear + 1) % self.size
         self.queue[self.rear] = value
         return True
-    
+
     def dequeue(self) -> bool:
         if self.is_empty():
             return False
@@ -22,12 +22,11 @@ class MyCircularQueue:
         else:
             self.front = (self.front + 1) % self.size
         return True
-    
+
     def get_front(self) -> int:
         if not self.is_empty():
             return self.queue[self.front]
         return -1
-       
 
     def get_rear(self):
         if not self.is_empty():
@@ -38,10 +37,10 @@ class MyCircularQueue:
         return self.front == -1
 
     def is_full(self):
-        eturn (self.front == 0 and self.rear == (self.size - 1)) or (self.front == (self.rear + 1) % self.size)
+        return (self.front == 0 and self.rear == (self.size - 1)) or (self.front == (self.rear + 1) % self.size)
 
 
-# Do not change the following code
+# Do not change the following codeT
 operations = []
 for specific_operation in input().split(','):
     operations.append(specific_operation.strip())
